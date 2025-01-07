@@ -12,7 +12,8 @@ class Notely extends StatelessWidget {
     return MaterialApp(
       title: 'Notely',
       theme: ThemeData(
-        brightness: Brightness.dark
+        brightness: Brightness.dark,
+        fontFamily: 'Poppins',
 
       ),
       home: NotesView(),
