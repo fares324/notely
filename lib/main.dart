@@ -10,6 +10,7 @@ class Notely extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Notely',
       theme: ThemeData(
         brightness: Brightness.dark,
