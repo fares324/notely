@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:notely/constants.dart';
 import 'package:notely/views/notes_view.dart';
 
-void main() {
+void main()async {
+  await Hive.initFlutter();
+ await Hive.openBox(kNotes);
   runApp(const Notely());
 }
 class Notely extends StatelessWidget {
