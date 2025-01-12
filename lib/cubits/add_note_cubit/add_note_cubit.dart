@@ -5,17 +5,22 @@ import 'package:notely/constants.dart';
 import 'package:notely/models/note_model.dart';
 
 part 'add_note_state.dart';
-
 class AddNoteCubit extends Cubit<AddNoteState> {
-  AddNoteCubit() : super(AddNoteInitial());
-  
-  addNote(NoteModel note) async {
+    AddNoteCubit() : super(AddNoteInitial());
+
+  Future<void> addNote(NoteModel note) async {
     emit(AddNoteLoading());
     try {
+      // تحقق إذا كان الصندوق مفتوح بالفعل
+      if (!Hive.isBoxOpen(kNotes)) {
+        await Hive.openBox<NoteModel>(kNotes);
+      }
+
       var notesBox = Hive.box<NoteModel>(kNotes);
-      emit(AddNoteSuccess());
       await notesBox.add(note);
-    } on Exception catch (e) {
+
+      emit(AddNoteSuccess());
+    } catch (e) {
       emit(AddNoteFailure(message: e.toString()));
     }
   }
