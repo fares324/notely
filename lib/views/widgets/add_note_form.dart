@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:notely/constants.dart';
 import 'package:notely/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notely/models/note_model.dart';
+import 'package:notely/views/widgets/colors_list_view.dart';
 import 'package:notely/views/widgets/custom_button.dart';
 import 'package:notely/views/widgets/custom_tesxt_field.dart';
 
@@ -45,6 +47,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 5,
           ),
+          ColorsListView(),
           SizedBox(
             height: 40,
           ),
@@ -56,7 +59,8 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     var currentDate = DateTime.now();
-                    var formatedCurrentDate = DateFormat.yMEd().format(currentDate);
+                    var formatedCurrentDate =
+                        DateFormat.yMEd().format(currentDate);
                     var noteModel = NoteModel(
                         title: title!,
                         subtitle: subTitle!,

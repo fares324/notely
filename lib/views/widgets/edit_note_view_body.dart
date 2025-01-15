@@ -67,7 +67,9 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               builder: (context) {
                 return AlertDialog(
                   title: Text('Note Updated'),
-                  content: Text('Your note has been updated successfully.'),
+                  content: Text('Your note has been updated successfully.',style: TextStyle(
+                    fontSize: 16
+                  ),),
                   actions: [
                     TextButton(
                       onPressed: () {
