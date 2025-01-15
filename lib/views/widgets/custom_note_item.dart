@@ -13,7 +13,7 @@ class NoteItem extends StatelessWidget {
       onTap: () {
         Navigator.push(context, MaterialPageRoute(
           builder: (context) {
-            return EditNoteView();
+            return EditNoteView(note: note,);
           },
         ));
       },
@@ -47,7 +47,7 @@ class NoteItem extends StatelessWidget {
                   onPressed: () {
                     note.delete();
                     BlocProvider.of<NotesCubitCubit>(context).fetchAllNotes();
-                    
+
                   },
                   icon: Icon(
                     Icons.delete_forever_rounded,
