@@ -30,8 +30,9 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               widget.note.subtitle = content ?? widget.note.subtitle;
               widget.note.save();
               BlocProvider.of<NotesCubitCubit>(context).fetchAllNotes();
-              
+         
               Navigator.pop(context);
+                   showSaveDialog(context);
             },
             title: 'Edit Note',
             icon: Icons.check,
@@ -59,4 +60,26 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
       ),
     );
   }
+
+  Future<dynamic> showSaveDialog(BuildContext context) {
+    return showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text('Note Updated'),
+                  content: Text('Your note has been updated successfully.'),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Ok'),
+                    )
+                  ],
+
+                );
+              },
+            );
+  }
+
 }
