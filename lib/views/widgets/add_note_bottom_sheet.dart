@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notely/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notely/cubits/notes_cubit/notes_cubit_cubit.dart';
 import 'package:notely/views/widgets/add_note_form.dart';
 
 class AddNoteBottomSheet extends StatelessWidget {
@@ -17,14 +18,15 @@ class AddNoteBottomSheet extends StatelessWidget {
                 SnackBar(content: Text(state.message.toString())));
           }
           if (state is AddNoteSuccess) {
+            BlocProvider.of<NotesCubitCubit>(context).fetchAllNotes();
             Navigator.pop(context);
           }
         },
         builder: (context, state) {
           return AbsorbPointer(
-            absorbing: state is AddNoteLoading?true:false,
+            absorbing: state is AddNoteLoading ? true : false,
             child: Padding(
-              padding:  EdgeInsets.only(
+              padding: EdgeInsets.only(
                 left: 16,
                 right: 16,
                 bottom: MediaQuery.of(context).viewInsets.bottom,
