@@ -6,6 +6,7 @@ import 'package:notely/cubits/notes_cubit/notes_cubit_cubit.dart';
 import 'package:notely/models/note_model.dart';
 import 'package:notely/simple_bloc_observer.dart';
 import 'package:notely/views/notes_view.dart';
+import 'package:notely/views/splash_screen.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -29,7 +30,7 @@ class Notely extends StatelessWidget {
           brightness: Brightness.dark,
           fontFamily: 'Poppins',
         ),
-        home: const NotesView(),
+        home: const SplashScreen(),
       ),
     );
   }
