@@ -45,6 +45,16 @@ dev_dependencies:
     sdk: flutter
   hive_generator: ^2.0.1  
   build_runner: ^2.4.14 
+  ev_dependencies:
+  flutter_launcher_icons: ^0.14.3
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/notelylogo.png"
+  min_sdk_android: 21  
+  adaptive_icon_background: "#FFFFFF" # Optional: Background color for adaptive icons (Android)
+  adaptive_icon_foreground: "assets/images/notelylogo.png" # Optional: Same as the image_path for foreground 
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -65,8 +75,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
