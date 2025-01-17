@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:notely/constants.dart';
 import 'package:notely/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notely/models/note_model.dart';
 import 'package:notely/views/widgets/colors_list_view.dart';

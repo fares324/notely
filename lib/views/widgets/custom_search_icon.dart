@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 class CustomSearchIcon extends StatelessWidget {
   const CustomSearchIcon({
-    Key? key,
+    super.key,
     this.onPressed,
     required this.icon,
-  }) : super(key: key);
+  });
   final void Function()? onPressed;
   final IconData icon;
   @override
